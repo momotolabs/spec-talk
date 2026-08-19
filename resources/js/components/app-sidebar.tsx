@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, FolderOpen, LayoutGrid, Package, BarChart3, Settings } from 'lucide-react';
+import { BookOpen, FolderGit2, FolderOpen, LayoutGrid, Package, BarChart3, Settings, Monitor, Receipt } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -17,6 +17,8 @@ import { dashboard } from '@/routes';
 import { index as indexCategories } from '@/routes/categories';
 import { index as indexProducts } from '@/routes/products';
 import { index as indexInventory } from '@/routes/inventory';
+import { terminal as terminalPos } from '@/routes/pos';
+import { index as indexSales } from '@/routes/sales';
 import { edit as editIva } from '@/routes/settings/iva';
 import type { NavItem } from '@/types';
 
@@ -40,6 +42,16 @@ const mainNavItems: NavItem[] = [
         title: 'Inventory',
         href: indexInventory(),
         icon: BarChart3,
+    },
+    {
+        title: 'POS Terminal',
+        href: terminalPos(),
+        icon: Monitor,
+    },
+    {
+        title: 'Sales',
+        href: indexSales(),
+        icon: Receipt,
     },
     {
         title: 'IVA Settings',

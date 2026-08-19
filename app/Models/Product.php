@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Fillable(['name', 'description', 'price', 'stock_quantity', 'min_stock_alert', 'category_id', 'active'])]
 class Product extends Model
@@ -33,5 +34,11 @@ class Product extends Model
     public function getIsLowStockAttribute(): bool
     {
         return $this->stock_quantity <= $this->min_stock_alert;
+    }
+
+    /** @return HasMany<SaleItem> */
+    public function saleItems(): HasMany
+    {
+        return $this->hasMany(SaleItem::class);
     }
 }
